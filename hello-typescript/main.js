@@ -2,15 +2,21 @@ var minhaVar = 'minha variavel';
 function minhaFunc(x, y) {
     return x + y;
 }
-//ES 6 OU ES 2015
+//ES 6 ou ES 2015
 var num = 2;
 var PI = 3.14;
 var numeros = [1, 2, 3];
 numeros.map(function (valor) {
     return valor * 2;
 });
-//Arrow function
-numeros.map(function (valor) { return valor * 2; }); //ES 2015 
-//tipagem de variavel
-var n1 = 'sfasf';
+numeros.map(function (valor) { return valor * 2; }); //ES 2015
+var Matematica = /** @class */ (function () {
+    function Matematica() {
+    }
+    Matematica.prototype.soma = function (x, y) {
+        return x + y;
+    };
+    return Matematica;
+}());
+var n1 = 'sfasf'; //Tipagem de variaveis 'any é o padrão default para qualquer coisa'
 n1 = 4;
