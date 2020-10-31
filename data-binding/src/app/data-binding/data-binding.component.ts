@@ -25,6 +25,8 @@ export class DataBindingComponent {
 
   nomeDoCurso: String = 'Angular';
 
+  valorInicial = 15;
+
   nome: String = 'abc';
 
   pessoa: any = {
@@ -56,6 +58,9 @@ export class DataBindingComponent {
     this.isMouseOver = !this.isMouseOver;
   }
 
+  onMudouValor(evento){
+    console.log(evento.novoValor);
+  }
   constructor(){
 
   }
