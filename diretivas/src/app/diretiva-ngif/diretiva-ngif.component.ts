@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiretivaNgifComponent{
 
-  curso: String[] = ['Angular 2'];
+  curso: string[] = ['Angular 2'];
 
-  mostrarCursos: boolean = false;
+  mostrarCursos = false;
 
   onMostrarCursos(){
     this.mostrarCursos = !this.mostrarCursos;
-    
   }
 
   constructor() { }
