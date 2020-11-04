@@ -12,11 +12,31 @@
 	</div>
 </nav>
 
+<!-- <ng-template [ngSwitch]="aba"]>
+   <div class="container">
+    
+      <p ngswi>Modo Mapa Ativado</p>
+      <p *ngSwitchCase="'lista'">Modo Lista Ativado</p>
+      <p *ngSwitchDefault>Home</p>
+      
+  </div>
+</ng-template> -->
+
+
+<h3>Removendo o * e usando template</h3>
+
 <div class="container" [ngSwitch]="aba">
     
-    <p *ngSwitchCase="'mapa'">Modo Mapa Ativado</p>
-    <p *ngSwitchCase="'lista'">Modo Lista Ativado</p>
-    <p *ngSwitchDefault>Home</p>
-    
-    
+   <ng-template [ngSwitchCase]="'mapa'" >
+      <p>Modo Mapa Ativado</p>
+   </ng-template>
+   <ng-template [ngSwitchCase]="'lista'" >
+      <p>Modo Lista Ativado</p>
+   </ng-template>
+   <ng-template [ngSwitchCase]="'home'" ngSwitchDefault >
+      <p>Home</p>
+   </ng-template>
+
+
+   
 </div>
