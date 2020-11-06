@@ -1,0 +1,14 @@
+<!-- <div class="diretiva-ngclass"
+     [class.diretiva-ngclassGreen]="!meuFavorito"
+     [class.diretiva-ngclassRed]="meuFavorito"
+     (click)="onClick()">
+</div> -->
+
+
+<div class="diretiva-ngclass"
+     [ngClass]="{
+        'diretiva-ngclassGreen': !meuFavorito,
+        'diretiva-ngclassRed': meuFavorito
+     }" 
+     (click)="onClick()">
+</div>
