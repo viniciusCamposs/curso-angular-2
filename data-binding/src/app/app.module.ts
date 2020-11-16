@@ -10,6 +10,10 @@ import { OutputPropertyComponent } from './output-property/output-property.compo
 import { CicloComponent } from './ciclo/ciclo.component';
 import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +25,20 @@ import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.componen
   ],
   imports: [
     FormsModule,
+<<<<<<< HEAD
+    HttpModule,
+    BrowserModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
+=======
     BrowserModule,
     AppRoutingModule
+>>>>>>> a619a532ea32c553afd65d5279031150c5a4c0e6
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export class AppBootstrapModule {}
