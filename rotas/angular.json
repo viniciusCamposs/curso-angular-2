@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rotas"
+    }
+  },
+  "defaultProject": "rotas",
+  "cli": {
+    "analytics": "8d40306f-fcaa-4495-87f2-f8108256ab96"
+  }
 }
