@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "rotas-atualizado"
+  "defaultProject": "rotas-atualizado",
+  "cli": {
+    "analytics": false
+  }
 }
