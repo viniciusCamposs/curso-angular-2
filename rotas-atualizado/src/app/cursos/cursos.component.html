@@ -2,6 +2,8 @@
     Lista de Cursos
 </p>
 
+<p>Página: {{ pagina }}</p>
+
 <div class="collection">
     <a href="#!" class="collection-item"
         *ngFor="let curso of cursos" 
@@ -10,3 +12,5 @@
     </a>
 
   </div>
+
+  <button (click)="proximaPagina()">Prox Pagina</button>
