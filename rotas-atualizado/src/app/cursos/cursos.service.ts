@@ -20,7 +20,7 @@ export class CursosService {
         return curso;
       }
     }
-    return null;
+    return "";
   }
 
 
