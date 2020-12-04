@@ -2,7 +2,10 @@
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"
-        [ngModel]="usuario.nome" required>
+        [ngModel]="usuario.nome" required #nome>
+        <div>
+            {{ nome.className }}
+        </div>
     </div>
     <div class="form-group">
         <label for="email">Email</label>
@@ -11,3 +14,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+ 
