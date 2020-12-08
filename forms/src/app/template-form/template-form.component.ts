@@ -18,6 +18,9 @@ export class TemplateFormComponent implements OnInit {
      console.log(form);
 
     // console.log(this.usuario);
+
+    this.http.post('https://httpbin.org/get', JSON.stringify(form.value))
+      .subscribe(dados => console.log(dados));
    }
 
   constructor(private http: HttpClient) { }
@@ -36,6 +39,8 @@ export class TemplateFormComponent implements OnInit {
   }
 
   consultaCep(cep: any, form: any){
+    var cep = cep.replace(/\D/g, '');
+
     if (cep !='') {
       var validaCep = /^[0-9]{8}$/;
         if (validaCep.test(cep)){
@@ -75,6 +80,5 @@ export class TemplateFormComponent implements OnInit {
       }
     });
   }
-
 
 }
