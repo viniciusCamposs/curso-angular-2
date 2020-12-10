@@ -1,6 +1,6 @@
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
     
-    <div class="form-group">
+    <div class="form-group" [ngClass]="aplicaCssErro('nome')">
         <div class="col-sm-12">
             <label for="nome" class="control-label"><b>Nome</b></label>
         </div>
@@ -10,13 +10,62 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="aplicaCssErro('email')">
         <div class="col-sm-12">
             <label for="email"><b>Email</b></label>
         </div>
 
         <div class="col-sm-12">
             <input type="email" class="form-control" formControlName="email" id="email" placeholder="nome@email.com">
+        </div>
+    </div>
+
+    <div ngModelGroup="endereco">
+        <div class="form-group" [ngClass]="aplicaCssErro('bairro')">
+        
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="cep" class="control-label"><b>Cep</b></label>
+                    <input type="text" class="form-control" id="cep" formControlName="cep">
+                </div>
+        
+                <div class="col-md-3">
+                    <label for="numero" class="control-label"><b>Número</b></label>
+                    <input type="text" class="form-control" id="numero" formControlName="numero">
+                </div>
+        
+                <div class="col-md-6">
+                    <label for="complemento" class="control-label"><b>Complemento</b></label>
+                    <input type="text" class="form-control" id="complemento" formControlName="complemento">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="aplicaCssErro('rua')">
+            <div class="col-sm-12">
+                <label for="rua" class="control-label"><b>Rua</b></label>
+                <input type="text" class="form-control" id="rua" formControlName="rua" readonly>
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="aplicaCssErro('bairro')">
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="bairro" class="control-label"><b>Bairro</b></label>
+                    <input type="text" class="form-control" id="bairro" formControlName="bairro" readonly>
+                </div>
+            
+                <div class="col-md-3">
+                    <label for="cidade" class="control-label"><b>Cidade</b></label>
+                    <input type="text" class="form-control" id="cidade" formControlName="cidade" readonly>
+                </div>
+            
+                <div class="col-md-6">
+                    <label for="estado" class="control-label"><b>Estado</b></label>
+                    <input type="text" class="form-control" id="estado" formControlName="estado" readonly>
+                </div>
+            </div>
         </div>
     </div>
 
