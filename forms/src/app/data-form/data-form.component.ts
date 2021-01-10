@@ -27,7 +27,7 @@ export class DataFormComponent implements OnInit {
     });*/
 
     this.formulario = this.formBuilder.group({
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      nome: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
 
       endereco: this.formBuilder.group({
@@ -45,8 +45,12 @@ export class DataFormComponent implements OnInit {
   onSubmit(){
     console.log(this.formulario.value);
 
-    //reseta o form
-    this.resetar();
+    if(this.formulario.valid){
+      //reseta o form
+      this.resetar();
+    }else{
+      console.log('formulario invaliado');
+        }
 
   }
 
