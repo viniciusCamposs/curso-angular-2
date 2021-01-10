@@ -27,7 +27,7 @@ export class DataFormComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       cep:[null, Validators.required],
       numero:[null, Validators.required],
-      complemento: [null, Validators.required],
+      complemento: [null],
       rua: [null, Validators.required],
       bairro: [null, Validators.required],
       cidade: [null, Validators.required],

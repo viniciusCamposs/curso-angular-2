@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div ngModelGroup="endereco">
+    <div>
         <div class="form-group" [ngClass]="aplicaCssErro('bairro')">
         
             <div class="row">
@@ -44,7 +44,7 @@
         <div class="form-group" [ngClass]="aplicaCssErro('rua')">
             <div class="col-sm-12">
                 <label for="rua" class="control-label"><b>Rua</b></label>
-                <input type="text" class="form-control" id="rua" formControlName="rua" readonly>
+                <input type="text" class="form-control" id="rua" formControlName="rua">
             </div>
         </div>
 
@@ -53,17 +53,17 @@
             <div class="row">
                 <div class="col-md-3">
                     <label for="bairro" class="control-label"><b>Bairro</b></label>
-                    <input type="text" class="form-control" id="bairro" formControlName="bairro" readonly>
+                    <input type="text" class="form-control" id="bairro" formControlName="bairro">
                 </div>
             
                 <div class="col-md-3">
                     <label for="cidade" class="control-label"><b>Cidade</b></label>
-                    <input type="text" class="form-control" id="cidade" formControlName="cidade" readonly>
+                    <input type="text" class="form-control" id="cidade" formControlName="cidade">
                 </div>
             
                 <div class="col-md-6">
                     <label for="estado" class="control-label"><b>Estado</b></label>
-                    <input type="text" class="form-control" id="estado" formControlName="estado" readonly>
+                    <input type="text" class="form-control" id="estado" name="estado" formControlName="estado">
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
 
     <div class="col-sm-12">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button class="btn btn-secondary" (click)="resetar">Cancel</button>
+        <button class="btn btn-secondary" (click)="resetar()">Cancel</button>
     </div>
 </form>
 
