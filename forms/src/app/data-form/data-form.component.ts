@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http';;
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { HttpClient } from '@angular/common/http';
+;
 
 @Component({
   selector: 'app-data-form',
@@ -60,6 +61,49 @@ export class DataFormComponent implements OnInit {
   aplicaCssErro(campo: string){
     return {
       'has-error': this.verificaValidTouched(campo)
+    }
+  }
+
+  populaDadosForm(dados: any){
+    this.formulario.patchValue({
+      endereco: {
+        rua: dados.logradouro,
+        //cep: dados.cep,
+        complemento: dados.complemento,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
+  }
+
+  resetaDadosForm(){
+    this.formulario.patchValue({
+      endereco: {
+        rua: null,
+        complemento: null,
+        bairro: null,
+        cidade: null,
+        estado: null
+      }
+    });
+  }
+
+  consultaCep(){
+
+    let cep = this.formulario.get('endereco.cep')?.value;
+
+    cep = cep.replace(/\D/g, '');
+
+    if (cep !='') {
+      var validaCep = /^[0-9]{8}$/;
+        if (validaCep.test(cep)){
+
+          this.resetaDadosForm();
+
+          this.http.get(`https://viacep.com.br/ws/${cep}/json`)
+          .subscribe(data => this.populaDadosForm(data));
+        }
     }
   }
 
