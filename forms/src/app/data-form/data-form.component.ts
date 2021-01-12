@@ -28,4 +28,15 @@ export class DataFormComponent implements OnInit {
 
   }
 
+  onSubmit(){
+    console.log(this.formulario.value);
+    this.resetar();
+  }
+
+  resetar(){
+    this.formulario.reset();
+  }
+
+
+
 }
