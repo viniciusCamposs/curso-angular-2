@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-form',
@@ -20,10 +20,19 @@ export class DataFormComponent implements OnInit {
       email: new FormControl(null)
     });
     */
-
+ 
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      email: [null]
+      nome: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      endereco: this.formBuilder.group({
+        cep: [null, Validators.required],
+        numero: [null, Validators.required],
+        complemento: [null],
+        rua: [null, Validators.required],
+        bairro: [null, Validators.required],
+        cidade: [null, Validators.required],
+        estado: [null, Validators.required]
+      })
     });
 
   }
@@ -37,6 +46,16 @@ export class DataFormComponent implements OnInit {
     this.formulario.reset();
   }
 
+  verificaValidTouched(campo: any){
+
+    return !this.formulario.get(campo)?.valid
+  }
+
+  aplicaCssErro(campo: any){
+    return {
+      'has-error': this.verificaValidTouched(campo)
+    }
+  }
 
 
 }
