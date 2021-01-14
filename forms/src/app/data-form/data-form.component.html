@@ -1,101 +1,155 @@
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    
-    <div class="form-group" [ngClass]="aplicaCssErro('nome')">
 
-        <div class="col-sm-12">
-            <label for="nome" class="control-label"><b>Nome</b></label>
-        </div>
+  <div class="form-group" [ngClass]="aplicaCssErro('nome')">
 
-        <div class="col-sm-12">
-            <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome"
-            >
-        </div>
-
+    <div class="col-sm-12">
+      <label for="nome" class="control-label"><b>Nome</b></label>
     </div>
 
-    <div class="form-group" [ngClass]="aplicaCssErro('email')">
-
-        <div class="col-sm-12">
-            <label for="email"><b>Email</b></label>
-        </div>
-
-        <div class="col-sm-12">
-            <input type="email" class="form-control" formControlName="email" id="email" placeholder="nome@email.com">
-        </div>
-    
+    <div class="col-sm-12">
+      <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
     </div>
 
-    <div formGroupName="endereco">
-        <div class="form-group">
-        
-            <div class="row" >
-                <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.cep')">
-                    <label for="cep" class="control-label"><b>Cep</b></label>
-                    <input type="text" class="form-control" id="cep" formControlName="cep"
-                    (blur)="consultaCep()">
-                </div>
-        
-                <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.numero')">
-                    <label for="numero" class="control-label"><b>Número</b></label>
-                    <input type="text" class="form-control" id="numero" formControlName="numero">
-                </div>
-        
-                <div class="col-md-6">
-                    <label for="complemento" class="control-label"><b>Complemento</b></label>
-                    <input type="text" class="form-control" id="complemento">
-                </div>
-            </div>
+  </div>
+
+  <div class="form-group" [ngClass]="aplicaCssErro('email')">
+    <div class="col-sm-12">
+      <label for="email"><b>Email</b></label>
+    </div>
+
+    <div class="col-sm-12">
+      <input type="email" class="form-control" formControlName="email" id="email" placeholder="nome@email.com">
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="aplicaCssErro('confimarEmail')">
+    <div class="col-sm-12">
+      <label for="confimarEmail"><b>Confirmar Email</b></label>
+    </div>
+
+    <div class="col-sm-12">
+      <input type="confimarEmail" class="form-control" formControlName="confimarEmail" id="confimarEmail" placeholder="nome@email.com">
+    </div>
+  </div>
+
+
+  <div formGroupName="endereco">
+    <div class="form-group">
+
+      <div class="row">
+        <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.cep')">
+          <label for="cep" class="control-label"><b>Cep</b></label>
+          <input type="text" class="form-control" id="cep" formControlName="cep" (blur)="consultaCep()">
         </div>
 
-        <div class="form-group">
-            <div class="col-sm-12" [ngClass]="aplicaCssErro('endereco.rua')">
-                <label for="rua" class="control-label"><b>Rua</b></label>
-                <input type="text" class="form-control" id="rua" formControlName="rua">
-            </div>
+        <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.numero')">
+          <label for="numero" class="control-label"><b>Número</b></label>
+          <input type="text" class="form-control" id="numero" formControlName="numero">
         </div>
 
-        <div class="form-group">
-            
-            <div class="row">
-                <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.bairro')">
-                    <label for="bairro" class="control-label"><b>Bairro</b></label>
-                    <input type="text" class="form-control" id="bairro" formControlName="bairro">
-                </div>
-            
-                <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.cidade')"> 
-                    <label for="cidade" class="control-label"><b>Cidade</b></label>
-                    <input type="text" class="form-control" id="cidade" formControlName="cidade">
-                </div>
-            
-                <div class="col-md-6" [ngClass]="aplicaCssErro('endereco.estado')">
-                    <label for="estado" class="control-label"><b>Estado</b></label>
-                    <select class="form-control" id="estado" formControlName="estado">
-                        <option *ngFor="let estado of estados | async" [value]="estado.sigla"> {{ estado.nome }} </option>
-                    </select>
-                </div>
-            </div>
+        <div class="col-md-6">
+          <label for="complemento" class="control-label"><b>Complemento</b></label>
+          <input type="text" class="form-control" id="complemento">
         </div>
+      </div>
     </div>
 
     <div class="form-group">
-        <div class="col-md-6">
-            <label for="cargo" class="control-label"><b>Cargo</b></label>
-            <select class="form-control" id="cargo" formControlName="cargo" [compareWith]="compararCargos">
-                <option *ngFor="let cargo of cargos" [ngValue]="cargo"> {{ cargo.desc }} </option>
-            </select>
-        </div>
+      <div class="col-sm-12" [ngClass]="aplicaCssErro('endereco.rua')">
+        <label for="rua" class="control-label"><b>Rua</b></label>
+        <input type="text" class="form-control" id="rua" formControlName="rua">
+      </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <button class="btn btn-dark" (click)="resetar()">Resetar</button>
-    <button class="btn btn-dark" (click)="setarCargo()">Cargo</button>
+    <div class="form-group">
 
-    <app-form-debug [form]="formulario"></app-form-debug>
+      <div class="row">
+        <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.bairro')">
+          <label for="bairro" class="control-label"><b>Bairro</b></label>
+          <input type="text" class="form-control" id="bairro" formControlName="bairro">
+        </div>
+
+        <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.cidade')">
+          <label for="cidade" class="control-label"><b>Cidade</b></label>
+          <input type="text" class="form-control" id="cidade" formControlName="cidade">
+        </div>
+
+        <div class="col-md-6" [ngClass]="aplicaCssErro('endereco.estado')">
+          <label for="estado" class="control-label"><b>Estado</b></label>
+          <select class="form-control" id="estado" formControlName="estado">
+            <option *ngFor="let estado of estados | async" [value]="estado.sigla"> {{ estado.nome }} </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="cargo" class="control-label"><b>Cargo</b></label>
+        <select class="form-control" id="cargo" formControlName="cargo" [compareWith]="compararCargos">
+          <option *ngFor="let cargo of cargos" [ngValue]="cargo"> {{ cargo.desc }} </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="tecnologia" class="control-label"><b>Tecnologia</b></label>
+        <select multiple class="form-control" id="tecnologia" formControlName="tecnologias">
+          <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome"> {{ tecnologia.desc }} </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="newsletter" class="control-label"><b>Newsletter</b></label>
+        <div id="newsletter" class="row">
+          <div class="col-sm-4" *ngFor="let item of newsletterop">
+            <label class="radio-inline">
+              <input type="radio" [value]="item.valor" formControlName="newsletter" /> {{ item.desc }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-3" [ngClass]="aplicaCssErro('termos')">
+        <div class="checkbox">
+          <label class="checkbox-inline">
+            <input type="checkbox" formControlName="termos"> Aceito os termos.
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="frameworks">Frameworks</label>
+        <div id="frameworks" class="row">
+          <div class="checkbox" class="col-sm-5" formArrayName="frameworks">
+            <label class="checkbox-inline">
+              <input type="checkbox" [formControlName]="0"> {{ frameworks[0] }}
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" [formControlName]="1"> {{ frameworks[1] }}
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" [formControlName]="2"> {{ frameworks[2] }}
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" [formControlName]="3"> {{ frameworks[3] }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button class="btn btn-dark" (click)="resetar()">Resetar</button>
+  <button class="btn btn-dark" (click)="setarCargo()">Cargo</button>
+  <button class="btn btn-dark" (click)="setarTecnologias()">Tecnologias</button>
+
+  <app-form-debug [form]="formulario"></app-form-debug>
 
 </form>
-
-
-
-
-
-
