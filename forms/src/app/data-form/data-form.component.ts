@@ -58,7 +58,7 @@ export class DataFormComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
-      confimarEmail: [null, [FormValidations.equalsTo('email')]],
+      //confimarEmail: [null, [FormValidations.equalsTo('email')]],
 
       endereco: this.formBuilder.group({
         cep: [null, [Validators.required, FormValidations.cepValidator]],
@@ -70,11 +70,11 @@ export class DataFormComponent implements OnInit {
         estado: [null, Validators.required]
       }),
 
-      cargo: [null],
-      tecnologias: [null],
-      newsletter: ['s'],
-      termos: [null, Validators.pattern('true')],
-      frameworks: this.buildFrameworks()
+      // cargo: [null],
+      // tecnologias: [null],
+      // newsletter: ['s'],
+      // termos: [null, Validators.pattern('true')],
+      // frameworks: this.buildFrameworks()
     });
 
   }
