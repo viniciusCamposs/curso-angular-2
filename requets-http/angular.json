@@ -146,5 +146,8 @@
       }
     }
   },
-  "defaultProject": "requets-http"
+  "defaultProject": "requets-http",
+  "cli": {
+    "analytics": false
+  }
 }
