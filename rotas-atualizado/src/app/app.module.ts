@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.guard';
 import { AlunosGuard } from './guards/alunos.guard';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { BindingComponent } from './binding/binding.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
     AppComponent,
     HomeComponent,
     LoginComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    BindingComponent
   ],
   imports: [
     BrowserModule,
