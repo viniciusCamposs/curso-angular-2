@@ -8,6 +8,8 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
   declarations: [AlertModalComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [AlertModalComponent],
+  entryComponents: [AlertModalComponent]
 })
 export class SharedModule { }
